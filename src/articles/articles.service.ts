@@ -9,7 +9,11 @@ export class ArticlesService {
   }
 
   findAll() {
-    return `This action returns all articles`;
+    return [
+      {
+        exampleField: 1,
+      },
+    ];
   }
 
   findOne(id: number) {
