@@ -1,12 +1,22 @@
+scalar DateTime
+
 type Article {
-  # Example field (placeholder)
-  exampleField: Int
-  
+  id: Int!
+  title: String!
+  description: String!
+  content: String
+  image: String
+  createdAt: DateTime!
+  author: String!
 }
 
 input CreateArticleInput {
-  # Example field (placeholder)
-  exampleField: Int
+  title: String!
+  description: String!
+  content: String
+  image: String
+  createdAt: DateTime!
+  author: String!
 }
 
 input UpdateArticleInput {

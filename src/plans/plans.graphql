@@ -1,0 +1,33 @@
+scalar DateTime
+
+type Plan {
+  id: Int!
+  title: String!
+  description: String!
+  image: String
+  createdAt: DateTime!
+  author: String!
+}
+
+input CreatePlanInput {
+  title: String!
+  description: String!
+  image: String
+  createdAt: DateTime!
+  author: String!
+}
+
+input UpdatePlanInput {
+  id: Int!
+}
+
+type Query {
+  plans: [Plan]!
+  plan(id: Int!): Plan
+}
+
+type Mutation {
+  createPlan(createPlanInput: CreatePlanInput!): Plan!
+  updatePlan(updatePlanInput: UpdatePlanInput!): Plan!
+  removePlan(id: Int!): Plan
+}

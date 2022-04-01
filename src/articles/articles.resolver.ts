@@ -5,7 +5,7 @@ import { UpdateArticleInput } from './dto/update-article.input';
 
 @Resolver('Article')
 export class ArticlesResolver {
-  constructor(private readonly articlesService: ArticlesService) {}
+  constructor(private readonly articlesService: ArticlesService) { }
 
   @Mutation('createArticle')
   create(@Args('createArticleInput') createArticleInput: CreateArticleInput) {
@@ -24,7 +24,10 @@ export class ArticlesResolver {
 
   @Mutation('updateArticle')
   update(@Args('updateArticleInput') updateArticleInput: UpdateArticleInput) {
-    return this.articlesService.update(updateArticleInput.id, updateArticleInput);
+    return this.articlesService.update(
+      updateArticleInput.id,
+      updateArticleInput,
+    );
   }
 
   @Mutation('removeArticle')

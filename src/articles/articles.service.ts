@@ -1,19 +1,18 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'prisma/prisma.service';
 import { CreateArticleInput } from './dto/create-article.input';
 import { UpdateArticleInput } from './dto/update-article.input';
 
 @Injectable()
 export class ArticlesService {
+  constructor(private prisma: PrismaService) { }
+
   create(createArticleInput: CreateArticleInput) {
     return 'This action adds a new article';
   }
 
   findAll() {
-    return [
-      {
-        exampleField: 1,
-      },
-    ];
+    return this.prisma.article.findMany();
   }
 
   findOne(id: number) {
